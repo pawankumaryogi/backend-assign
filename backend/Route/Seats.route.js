@@ -89,17 +89,6 @@ seatRouter.post("/reserve", count, async(req, res) => {
     }
 });
 
-// PATCH request 
-// Make a patch request at "/seats/reset" to reset all the seats status to available. 
 
-seatRouter.patch("/reset", async(req, res) => { 
-    try { 
-        await seatModel.updateMany({isBooked : true}, {isBooked : false});                  // Updating the data of the seats which are booked. 
-        res.status(200).send({ "message" : "All the seats are available for booking." });    // Response to the request with a success message.
-    } catch (error) { 
-        console.log(error); 
-        res.status(400).send(error);        // Error response 
-    } 
-})
 
 module.exports = { seatRouter }; 
