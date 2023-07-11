@@ -4,17 +4,17 @@ const express = require("express");
 const cors = require("cors"); 
 const { connection } = require("./db"); 
 const { seatRouter } = require("./Route/Seats.route"); 
-// const { seatModel } = require("./Model/Seat.model");      // Uncomment if wnat to add more seats to the database.
+const { seatModel } = require("./Model/Seat.model");      // Uncomment if wnat to add more seats to the database.
 
 const app = express(); 
 
 app.use(express.json()); 
 app.use(cors()); 
 app.get('/', (req, res) => { 
-    // for (let i=1;i<=80;i++){ 
-    // const seat = new seatModel({seatNumber : i, isBooked : false}); 
-    // seat.save();  
-// }
+    for (let i=1;i<=80;i++){ 
+    const seat = new seatModel({seatNumber : i, isBooked : false}); 
+    seat.save();  
+}
 
     res.send('Welcome From Mr Pawan Yogi') 
   })
